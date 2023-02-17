@@ -8,22 +8,25 @@ import LoginForm from "./Components/Login/LoginForm";
 import LoginCreate from "./Components/Login/LoginCreate";
 import LoginPasswordLost from "./Components/Login/LoginPasswordLost";
 import LoginPasswordReset from "./Components/Login/LoginPasswordReset";
+import { UserStorage } from "./UserContext";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />}>
-            <Route path="/login/" element={<LoginForm />} />
-            <Route path="/login/criar" element={<LoginCreate />} />
-            <Route path="/login/perdeu" element={<LoginPasswordLost />} />
-            <Route path="/login/resetar" element={<LoginPasswordReset />} />
-          </Route>
-        </Routes>
-        <Footer />
+        <UserStorage>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />}>
+              <Route path="/login/" element={<LoginForm />} />
+              <Route path="/login/criar" element={<LoginCreate />} />
+              <Route path="/login/perdeu" element={<LoginPasswordLost />} />
+              <Route path="/login/resetar" element={<LoginPasswordReset />} />
+            </Route>
+          </Routes>
+          <Footer />
+        </UserStorage>
       </BrowserRouter>
     </div>
   );
