@@ -8,7 +8,9 @@ import LoginForm from "./Components/Login/LoginForm";
 import LoginCreate from "./Components/Login/LoginCreate";
 import LoginPasswordLost from "./Components/Login/LoginPasswordLost";
 import LoginPasswordReset from "./Components/Login/LoginPasswordReset";
+import { User } from "./Components/User/User";
 import { UserStorage } from "./UserContext";
+import { ProtectedRoute } from "./Components/Helper/ProtectedRoute";
 
 function App() {
   return (
@@ -18,12 +20,20 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />}>
+            <Route path="login" element={<Login />}>
               <Route path="/login/" element={<LoginForm />} />
               <Route path="/login/criar" element={<LoginCreate />} />
               <Route path="/login/perdeu" element={<LoginPasswordLost />} />
               <Route path="/login/resetar" element={<LoginPasswordReset />} />
             </Route>
+            <Route
+              path="conta/*"
+              element={
+                <ProtectedRoute>
+                  <User />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
           <Footer />
         </UserStorage>
