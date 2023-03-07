@@ -23,8 +23,8 @@ const PhotoContent = ({ data }) => {
           <li>{photo.peso} kg</li>
           <li>{photo.idade} anos</li>
         </ul>
-        <PhotoComments id={photo.id} comments={comments} />
       </div>
+      <PhotoComments id={photo.id} comments={comments} />
     </div>
   );
 };
