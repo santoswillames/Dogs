@@ -1,5 +1,4 @@
 import { Feed } from "./Feed/Feed";
-import Loading from "./Helper/Loading";
 
 const Home = () => {
   return (
